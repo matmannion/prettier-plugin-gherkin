@@ -23,7 +23,7 @@ const getBinary = async () => {
   console.log("Platform : ", platform);
   const url = `https://github.com/ekino/prettier-plugin-gherkin/releases/download/0.0.1/cucumber-${platform}.tar.gz`;
   const name = "gherkingo";
-  const binary = new Binary(url, { name, installDirectory: "postinstall" });
+  const binary = new Binary(name, url, { installDirectory: "postinstall" });
   return binary.install();
 };
 

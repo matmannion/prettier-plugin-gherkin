@@ -1,5 +1,4 @@
 const {
-  concat,
   fill,
   indent,
   join,
@@ -11,7 +10,7 @@ const allowTextToBeSplited = require("./helper/allowTextToBeSplited");
 
 // eslint-disable-next-line no-unused-vars
 module.exports = (node, options) => {
-  return concat([
+  return [
     hardline,
 
     // Scenario tags
@@ -24,20 +23,20 @@ module.exports = (node, options) => {
 
     // Scenario body
     indent(
-      concat([
+      [
         "  ",
         // Feature title
-        concat([node.keyword, KEYWORD_SEPARATOR, node.name]),
+        [node.keyword, KEYWORD_SEPARATOR, node.name],
 
         // Feature description
         node.description
-          ? concat([
+          ? [
               hardline,
               fill([...allowTextToBeSplited(node.description), trim]),
-            ])
+            ]
           : "",
-      ]),
+      ],
     ),
     hardline,
-  ]);
+  ];
 };
